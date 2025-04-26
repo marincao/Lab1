@@ -117,3 +117,21 @@ header {
   top: 1rem;
   right: 1rem;
 }
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+#profile-stats dt {
+  grid-row: 1;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  margin: 0;
+}
