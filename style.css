@@ -135,3 +135,62 @@ header {
   grid-row: 2;
   margin: 0;
 }
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  overflow: visible;
+}
+
+.legend .swatch {
+  width: 1em;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.legend {
+  flex: 1;
+  list-style: none;
+  display: grid;
+  gap: .5em;
+  border: 1px solid #ccc;
+  padding: .5em;
+  margin: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(7em, 1fr));
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: .25em;
+}
+
+.container {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  transition: 300ms;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
+path {
+  cursor: pointer;
+}
