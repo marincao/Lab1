@@ -397,7 +397,7 @@ function onTimeSliderChange() {
 }
 
 document.getElementById('commit-progress').addEventListener('input', onTimeSliderChange);
-//onTimeSliderChange();
+onTimeSliderChange();
 
 
 d3.select('#scatter-story')
