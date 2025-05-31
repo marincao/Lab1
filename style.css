@@ -367,6 +367,7 @@ small {
   > * {
     flex: 1;
   }
+  padding-bottom: 30em;
 }
 
 #scatter-story {

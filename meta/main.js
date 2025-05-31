@@ -43,7 +43,8 @@ function processCommits(data) {
       });
 
       return ret;
-    });
+    })
+    .sort((a, b) => d3.ascending(a.datetime, b.datetime));
 }
 
 function renderCommitInfo(data, commits) {
@@ -396,7 +397,8 @@ function onTimeSliderChange() {
 }
 
 document.getElementById('commit-progress').addEventListener('input', onTimeSliderChange);
-onTimeSliderChange();
+//onTimeSliderChange();
+
 
 d3.select('#scatter-story')
   .selectAll('.step')
@@ -425,7 +427,13 @@ d3.select('#scatter-story')
   );
 
 function onStepEnter(response) {
-  console.log(response.element.__data__.datetime);
+    console.log(response);
+    commitMaxTime = response.element.__data__.datetime;
+    filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
+    console.log(filteredCommits);
+    renderCommitInfo(data, filteredCommits);
+    updateScatterPlot(data, filteredCommits);
+    updateFileDisplay(filteredCommits);
 }
 
 const scroller = scrollama();
